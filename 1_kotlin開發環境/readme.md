@@ -1,4 +1,5 @@
 # kotlin開發環境
+###### tags: `Kotlin` `IntelliJ IDEA`
 使用安裝IntellJ IDEA開發首个Kotlin。借此，來熟悉開發環境，開啟Kotlin新專案，編輯及編譯Kotlin程式碼，以及查看输出结果。
 
 ## 安裝IntelliJ IDEA 
