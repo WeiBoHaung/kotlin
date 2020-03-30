@@ -11,16 +11,22 @@ fun main() {
     val aureColor = aureColor(karma)
     //Aura
     printPlayerStatus(karma, aureColor, isBlessed, name, heathStatus)
-    castFireball()
+    val drunk_status = castFireball()
+    println("drunk_status:$drunk_status")
 
 }
 
-//---Fireball_Drunk--
-private fun castFireball() {
-    val drunk = (1..50).random()
-    println("A glass of Fireball springs into existence." + "(drunk:$drunk)")
+//---Fireball_Drunk_Report--
+private fun castFireball(drunk: Int = (1..50).random()) = when (drunk) {
+    in 1..10 -> "tipsy(微醺)"
+    in 11..20 -> "sloshed(微醉)"
+    in 21..30 -> "soused(醉了)"
+    in 31..40 -> "stewed(大醉)"
+    in 41..50 -> "...o0%$#@(爛醉如泥)"
+    else -> "none(不清楚)"
 }
-//---Fireball_Drunk--
+
+//---Fireball_Drunk_Report--
 
 
 private fun printPlayerStatus(
