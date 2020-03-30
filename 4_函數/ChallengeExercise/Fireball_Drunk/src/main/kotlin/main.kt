@@ -15,12 +15,12 @@ fun main() {
 
 }
 
-//---Fireball_Drunk--
+//---Fireball_Drunk---
 private fun castFireball() {
     val drunk = (1..50).random()
     println("A glass of Fireball springs into existence." + "(drunk:$drunk)")
 }
-//---Fireball_Drunk--
+//---Fireball_Drunk---
 
 
 private fun printPlayerStatus(
