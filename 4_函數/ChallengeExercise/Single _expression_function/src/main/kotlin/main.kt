@@ -5,6 +5,58 @@ fun main() {
     val isImmortal = false
     var heathPoints = 89
     val aureVisible = isBlessed && heathPoints > 50 || isImmortal
+    var heathStatus = formatHeathStatus(heathPoints, isBlessed)
+
+    val karma = (Math.pow(Math.random(), (110 - heathPoints) / 100.0) * 20).toInt()
+    val aureColor = aureColor(karma)
+    //Aura
+    printPlayerStatus(karma, aureColor, isBlessed, name, heathStatus)
+    castFireball()
+    castFireball(5)
+}
+
+private fun castFireball(numFireball: Int = 2) {
+    println("A glass of Fireball springs into existence." + "(x$numFireball)")
+}
+
+
+private fun printPlayerStatus(
+    karma: Int,
+    aureColor: String,
+    isBlessed: Boolean,
+    name: String,
+    heathStatus: String
+) {
+    println(
+        "karma:$karma" + "(Aura:$aureColor)" +
+                "Blessed:${if (isBlessed) "YES" else "NO"}"
+    )
+    println("$name $heathStatus")
+}
+//---Single_Expression_function---
+
+//private fun aureColor(karma: Int): String {
+//    val aureColor = when (karma) {
+//        in 0..5 -> "red"
+//        in 6..10 -> "orange"
+//        in 11..15 -> "purple"
+//        in 16..20 -> "green"
+//
+//        else -> "green"
+//    }
+//    return aureColor
+//}
+private fun aureColor(Karma: Int) = when (Karma) {
+    in 0..5 -> "red"
+    in 6..10 -> "orange"
+    in 11..15 -> "purple"
+    in 16..20 -> "green"
+    else -> "green"
+}
+//---Single_Expression_function---
+
+
+private fun formatHeathStatus(heathPoints: Int, isBlessed: Boolean): String {
     var heathStatus = when (heathPoints) {
         100 -> "is in excellent condition!"
         in 90..99 -> "has a few scratches."
@@ -16,21 +68,8 @@ fun main() {
         in 15..74 -> "looks pretty hurt."
         else -> "is in awful conditon"
     }
-
-
-    val karma = (Math.pow(Math.random(), (110 - heathPoints) / 100.0) * 20).toInt()
-    val aureColor = when (karma) {
-        in 0..5 -> "red"
-        in 6..10 -> "orange"
-        in 11..15 -> "purple"
-        in 16..20 -> "green"
-
-        else -> "green"
-    }
-
-    println(
-        "karma:$karma" + "(Aura:$aureColor)" +
-                "Blessed:${if (isBlessed) "YES" else "NO"}"
-    )
-    println("$name $heathStatus")
+    return heathStatus
 }
+
+
+
